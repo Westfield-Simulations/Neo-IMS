@@ -1,0 +1,12 @@
+title = "Neo-IMS"
+gitRepoUrl = "https://github.com/Bloxinghouse-Electric-Corporation/Neo-IMS"
+
+gitSourceBranch = "master"
+changelog = true
+
+organizationName = "Bloxinghouse-Electric-Corporation"
+projectName = "Neo-IMS"
+
+[footer]
+style = "dark"
+copyright = "Copyright © 2025 Bloxinghouse. Built with Moonwave and Docusaurus"

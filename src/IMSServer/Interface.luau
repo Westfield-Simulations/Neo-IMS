@@ -5,6 +5,11 @@ local players = game:GetService("Players")
 local types = require(script.Parent.Types)
 local IMSShared = repStor.IMSShared
 
+
+--- @class Interface
+--- @server
+--- Class that acts as the serverside loader for Neo-IMS.
+--- This class is responsible for loading all devices, handling/validating info that gets sent to/from the client, and providing instances of devices for use in other scripts (i.e. simulation).
 local Interface = {}
 
 local devices = {}
@@ -20,10 +25,18 @@ local function stateKeyUpdated(device:types.Device<any>, newStateKey:{[string]:a
     IMSShared.DeviceStateKeyUpdate:FireAllClients(device.model, device.className, newStateKey)
 end
 
+--- Returns the current version of Neo-IMS as a string.
+---
+--- @return string -- Returns the current version of Neo-IMS
 function Interface.Version():string
     return "25.2"
 end
 
+--- Initializes Neo-IMS and loads all devices tagged with a valid class name.
+---
+--- @error [Neo-IMS]: Failed to find signal library under 'ReplicatedStorage.Signal'. -- This error is thrown if you failed to provide a signal library for Neo-IMS to use.
+--- @error [Neo-IMS]: 'ReplicatedStorage.Signal' is not a module script! -- Neo-IMS expects a signal library that has a single module script as an interface.
+--- @error [Neo-IMS]: Device with name [...] already exists. Skipping. -- Neo-IMS cannot load multiple devices with the same name. Only one instance will be loaded.
 function Interface.Init()
     print(`Initializing Neo-IMS Version {Interface.Version()}`)
 
@@ -96,10 +109,18 @@ function Interface.Init()
     end
 end
 
+--- Returns an instance of a device if it exists.
+---
+--- @param name string -- The name of the device as it is in workspace.
+--- @return Types.Device<any> | nil -- The instance of the device, or nil if it does not exist.
 function Interface.GetDevice(name:string):types.Device<any> | nil
     return devices[name]
 end
 
+--- Returns a table of all devices of a certain class.
+---
+--- @param class string -- The class to look for
+--- @return {Types.Device<any>} -- The array of devices
 function Interface.GetDevicesOfClass(class:string):{types.Device<any>}
     local array = {}
 
@@ -112,6 +133,14 @@ function Interface.GetDevicesOfClass(class:string):{types.Device<any>}
     return array
 end
 
+--- Sends a message from a client to a device to handle. This is usually only used internally.
+--- @private
+--- @param deviceName string -- The name of the device to target as it is in Workspace.
+--- @param player Player -- The player to send the message from
+--- @param msg {[string]:any} -- The message(s) to pass to the device
+--- @return boolean -- Whether or not the message was processed successfully.
+---
+--- @error [Neo-IMS]: Unable to send message to device [...], because it could not be found. -- The device specified in deviceName does not exist or did not load.
 function Interface.SendMessage(deviceName:string, player:Player, msg:{[string]:any}):boolean
     local device = Interface.GetDevice(deviceName)
 
