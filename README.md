@@ -4,10 +4,7 @@ This system handles all of the Control Room instrumentation (gauges, switches, i
 This version of the system is an adaptation of Dunscom's RP-IMS for Rojo.
 
 > [!IMPORTANT]
-> You are required to supply a signal library of some kind in `ReplicatedStorage.Signal`.
-
-This system is currently used in:
-- Dunscom Public Beta
+> You are required to supply a signal library of some kind as `ReplicatedStorage.Signal`. (FastSignal was used during development)
 
 > [!NOTE]
 > Documentation for Neo-IMS can be found in the Bloxinghouse Development Discord Server.

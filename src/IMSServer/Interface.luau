@@ -27,6 +27,14 @@ end
 function Interface.Init()
     print(`Initializing Neo-IMS Version {Interface.Version()}`)
 
+    if not repStor.Signal then
+        error("[Neo-IMS]: Failed to find signal library under 'ReplicatedStorage.Signal'.")
+        return
+    elseif not repStor.Signal:IsA("ModuleScript") then
+        error("[Neo-IMS]: 'ReplicatedStorage.Signal' is not a module script!")
+        return
+    end
+
     local deviceFolders = {"Devices"}
 
     for _,folder in pairs(deviceFolders) do

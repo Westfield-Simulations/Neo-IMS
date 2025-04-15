@@ -6,6 +6,14 @@ task.wait(5) -- For some reason if we don't wait before doing anything, informat
 
 print("Initializing Neo-IMS Client Side")
 
+if not repStor.Signal then
+    error("[Neo-IMS]: Failed to find signal library under 'ReplicatedStorage.Signal'.")
+    return
+elseif not repStor.Signal:IsA("ModuleScript") then
+    error("[Neo-IMS]: 'ReplicatedStorage.Signal' is not a module script!")
+    return
+end
+
 local devices = {}
 
 local function reloadDevices()
