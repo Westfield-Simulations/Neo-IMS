@@ -43,7 +43,8 @@ repStor.IMSShared.DeviceStateUpdate.OnClientEvent:Connect(function(deviceModel:M
         return
     end
     if devices[className] == nil then
-        warn("[Neo-IMS]: Server attempted to update device \"" .. className .. "\" which is not defined on this client. Are you missing a device implementation?")
+        -- This warning was a horrible idea
+        --warn("[Neo-IMS]: Server attempted to update device \"" .. className .. "\" which is not defined on this client. Are you missing a device implementation?")
         return
     end
     devices[className].Update(deviceModel, deviceState)

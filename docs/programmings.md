@@ -6,13 +6,13 @@ sidebar_position: 2
 
 ## Device Initialization
 
-Server Side device modules are stored within the *ServerScriptService.IMSServer.Devices* folder. These modules are automatically loaded by the system as explained in [Introduction](./intro.md#server-side).
+Server Side device modules are stored within the *ServerScriptService.IMSSDevices* folder. These modules are automatically loaded by the system as explained in [Introduction](./intro.md#server-side).
 
 The most basic form of a server module looks like this:
 
-```lua title="ServerScriptService.IMSServer.Devices.Test"
-local types = require(script.Parent.Parent.Types)
-local device = require(script.Parent.Bases.Device)
+```lua title="ServerScriptService.IMSSDevices.Test"
+local types = require(script.Parent.Parent.IMSServer.Types)
+local device = require(script.Parent.Parent.IMSServer.Bases.Device)
 
 local Module = {}
 Module.__index = Module

@@ -42,7 +42,8 @@ The scripts for the **Server Side** are located within *ServerScriptService.IMSS
     - Routing messages and signals from the client to devices
     - Sending messages and signals from devices to the client
 - **Types**: This script contains all type definitions for the different devices.
-- **Devices**: This folder contains all Server Side scripts for the different devices. The ModuleScripts contained in this folder are automatically loaded by the **Interface** on initialization.
+
+**Devices** for the server side are located *ServerScriptService.IMSSDevices* This folder contains all Server Side scripts for the different devices. The ModuleScripts contained in this folder are automatically loaded by the **Interface** on initialization.
 
 ### Client Side
 
@@ -52,7 +53,9 @@ The scripts for the **Client Side** are located within *StarterPlayer.StarterPla
     - Deciding whether or not to load the VR version of Client Side scripts
     - Routing messages and signals from the server to devices
     - Sending messages and signals from devices to the server
-- **Devices**: This folder contains all Client Side scripts for the different devices. The ModuleScripts contained in this folder are automatically loaded by the **Loader** script on initialization.
-    - This folder also contains the subfolder “VR” for devices which require a different implementation in VR (i.e. switches and buttons)
-      :::info
-      VR Functionality is WIP!
+
+**Devices** for the client side are located *StarterPlayer.StarterPlayerScripts.IMSCDevices* This folder contains all Client Side scripts for the different devices. The ModuleScripts contained in this folder are automatically loaded by the **Loader** script on initialization.
+
+This folder also contains the subfolder “VR” for devices which require a different implementation in VR (i.e. switches and buttons)
+:::info
+VR Functionality is WIP!

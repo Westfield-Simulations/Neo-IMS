@@ -10,7 +10,7 @@ sidebar_position: 5
 
 An indicator light only requires the basic server side script. The state is a **Basic State** of type **boolean**.
 
-```lua title="ServerScriptService.IMSServer.Device.Indicator"
+```lua title="ServerScriptService.IMSSDevices.Indicator"
 local types = require(script.Parent.Parent.Types)
 local device = require(script.Parent.Bases.Device)
 
@@ -38,7 +38,7 @@ return Module
 The client side is also very simple.
 On an update, the light's material will get set to neon or glass depending on whether or not the state is set to true.
 
-```lua title="StarterPlayer.StarterPlayerScripts.IMSClient.Devices.Indicator"
+```lua title="StarterPlayer.StarterPlayerScripts.IMSCDevices.Indicator"
 local module = {}
 
 function module.Init(deviceModel:Model, deviceState:boolean)
@@ -61,7 +61,7 @@ return module
 
 Whenever the server recievs a message from the client, it updates the state accordingly:
 
-```lua title="ServerScriptService.IMSServer.Device.Button"
+```lua title="ServerScriptService.IMSSDevices.Button"
 local types = require(script.Parent.Parent.Types)
 local device = require(script.Parent.Bases.Device)
 
@@ -96,7 +96,7 @@ return Module
 
 The client sends a message whenever the player clicks or releases the button and updates the model (by changing the button material) according to the device state.
 
-```lua title="StarterPlayer.StarterPlayerScripts.IMSClient.Devices.Button"
+```lua title="StarterPlayer.StarterPlayerScripts.IMSCDevices.Button"
 local repStor = game:GetService("ReplicatedStorage")
 
 local module = {}

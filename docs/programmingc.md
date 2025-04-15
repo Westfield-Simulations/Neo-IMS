@@ -6,10 +6,10 @@ sidebar_position: 3
 
 ## Device Initialization
 
-Client Side device modules are stored within the `StarterPlayer.StarterPlayerScripts.IMSClient.Devices(.VR)` folder. These modules are automatically loaded by the system as explained in [Introduction](./intro.md#client-side).
+Client Side device modules are stored within the `StarterPlayer.StarterPlayerScripts.IMSCDevices(.VR)` folder. These modules are automatically loaded by the system as explained in [Introduction](./intro.md#client-side).
 
 The most basic form of a client module looks like this:
-```lua title="StarterPlayer.StarterPlayerScripts.IMSClient.Devices.Test"
+```lua title="StarterPlayer.StarterPlayerScripts.IMSCDevices.Test"
 local module = {}
 
 function module.Init(deviceModel:Model, deviceState:boolean) -- change this type to match your device
