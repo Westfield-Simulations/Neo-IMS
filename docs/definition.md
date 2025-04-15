@@ -11,6 +11,10 @@ Doing this is also pretty simple.
 
 Simply add a CollectionService tag to the device model named the exact same thing as the module scripts for the device.
 
+Adding the `ComplexInteractable` tag to the parent of the device model will prefix the name of the device with that parent's name.
+
+So for example, if we have a device named `L` and its parent was named `Light`, tagging the parent with ComplexInteractable would make the final name of the device `Light L`
+
 Once you do this, Neo-IMS loads an instance of that device for each tagged model.
 
 ## Initial States

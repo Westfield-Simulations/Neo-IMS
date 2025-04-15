@@ -1,5 +1,5 @@
-local types = require(script.Parent.Parent.Types)
-local device = require(script.Parent.Bases.Device)
+local types = require(script.Parent.Parent.IMSServer.Types)
+local device = require(script.Parent.Parent.IMSServer.Bases.Device)
 
 local Test = {}
 Test.__index = Test

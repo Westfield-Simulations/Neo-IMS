@@ -1,6 +1,6 @@
 --!strict
 
-local types = require(script.Parent.Parent.Parent.Types)
+local types = require(script.Parent.Parent.Types)
 local signal = require(game:GetService("ReplicatedStorage").Signal)
 
 --- @class Device

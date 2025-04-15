@@ -134,6 +134,9 @@
             "IMSServer":{
                 "$path": "src/IMSServer"
             },
+            "IMSSDevices":{
+                "$path": "src/IMSSDevices"
+            },
             "DevStuff":{
                 "$path":"dev/Server"
             }
@@ -143,6 +146,9 @@
             "StarterPlayerScripts": {
                 "IMSClient": {
                     "$path": "src/IMSClient"
+                },
+                "IMSCDevices":{
+                    "$path": "src/IMSCDevices"
                 }
             }
         }

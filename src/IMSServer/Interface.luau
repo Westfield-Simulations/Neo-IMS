@@ -48,10 +48,10 @@ function Interface.Init()
         return
     end
 
-    local deviceFolders = {"Devices"}
+    local deviceFolders = {"IMSSDevices"}
 
     for _,folder in pairs(deviceFolders) do
-        for _,class in pairs(script.Parent[folder]:GetChildren()) do
+        for _,class in pairs(script.Parent.Parent[folder]:GetChildren()) do
             if not class:IsA("ModuleScript") then continue end
 
             -- Ensure we only load a device class once
@@ -62,12 +62,18 @@ function Interface.Init()
 
             local count = 0
             for _,device in pairs(colServ:GetTagged(class.Name)) do
-                --TODO: Implement Complex Interactables
+                if device.Parent ~= nil then
+					if device.Parent:HasTag("ComplexInteractable") then
+						device.Name = device.Parent.Name .. " " .. device.Name
+					elseif device.Parent.Parent ~= nil and device.Parent:IsA("SurfaceGui") and device.Parent.Parent:HasTag("ComplexInteractable") then
+						device.Name = device.Parent.Parent.Name .. " " .. device.Name
+					end
+				end
 
                 -- print a warning for duplicate devices and skip them
                 -- but not for devices named "INOP" (can be used for unimplemented devices)
                 if devices[device.Name] and not string.find(device.Name, "INOP") then
-                    warn("[Neo-IMS]: Device with name \"" .. device.Name "\" already exists. Skipping.")
+                    warn("[Neo-IMS]: Device with name \"" .. device.Name .. "\" already exists. Skipping.")
                     continue
                 end
 

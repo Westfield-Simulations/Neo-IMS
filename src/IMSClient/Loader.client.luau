@@ -18,7 +18,7 @@ local devices = {}
 
 local function reloadDevices()
     table.clear(devices)
-    for _,a in pairs(script.Parent.Devices:GetChildren()) do
+    for _,a in pairs(script.Parent.Parent.IMSCDevices:GetChildren()) do
         if not a:IsA("ModuleScript") then
             continue
         end
