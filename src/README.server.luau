@@ -1,3 +1,4 @@
+--[[
 - Place IMSClient in StarterPlayer.StarterPlayerScripts
 - Place IMSShared in ReplicatedStorage
 - Place IMSServer in ServerScriptService
@@ -7,3 +8,4 @@
 
 
 - To start the interaction system, use IMSServer.Interface.Init()
+]]--
