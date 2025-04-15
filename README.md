@@ -8,3 +8,6 @@ This version of the system is an adaptation of Dunscom's RP-IMS for Rojo.
 
 This system is currently used in:
 - Dunscom Public Beta
+
+> [!NOTE]
+> Documentation for Neo-IMS can be found in the Bloxinghouse Development Discord Server.
