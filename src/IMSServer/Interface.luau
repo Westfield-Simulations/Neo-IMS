@@ -1,6 +1,8 @@
 local colServ = game:GetService("CollectionService")
 local repStor = game:GetService("ReplicatedStorage")
 local players = game:GetService("Players")
+local runServ = game:GetService("RunService")
+local httpServ = game:GetService("HttpService")
 
 local types = require(script.Parent.Types)
 local IMSShared = repStor.IMSShared
@@ -39,6 +41,25 @@ end
 --- @error [Neo-IMS]: Device with name [...] already exists. Skipping. -- Neo-IMS cannot load multiple devices with the same name. Only one instance will be loaded.
 function Interface.Init()
     print(`Initializing Neo-IMS Version {Interface.Version()}`)
+
+    if runServ:IsStudio() then
+        print("[Neo-IMS]: Checking for updates..")
+
+        local url = "https://api.github.com/repos/Bloxinghouse-Electric-Corporation/Neo-IMS/releases/latest"
+        local response = httpServ:GetAsync(url)
+        local data = httpServ:JSONDecode(response)
+        local majorUpstream = tonumber(string.split(data.tag_name, ".")[1]:sub(2, -1))
+        local minorUpstream = tonumber(string.split(data.tag_name, ".")[2])
+
+        local major = tonumber(string.split(Interface.Version(), ".")[1])
+        local minor = tonumber(string.split(Interface.Version(), ".")[2])
+
+        if (minorUpstream > minor and majorUpstream == major) or majorUpstream > major then
+            warn(`[Neo-IMS]: New update is available! Current version: {Interface.Version()}, Available Version: {data.tag_name}.`)
+        else
+            print("[Neo-IMS]: Newest version installed!")
+        end
+    end
 
     if not repStor.Signal then
         error("[Neo-IMS]: Failed to find signal library under 'ReplicatedStorage.Signal'.")
