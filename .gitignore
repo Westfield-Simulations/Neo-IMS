@@ -1,0 +1,8 @@
+/.vscode
+
+# Project place file
+/Neo-IMS.rbxm
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock

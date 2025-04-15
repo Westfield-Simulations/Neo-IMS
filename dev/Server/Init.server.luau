@@ -1,0 +1,1 @@
+require(script.Parent.Parent.IMSServer.Interface).Init()

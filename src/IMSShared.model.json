@@ -1,0 +1,21 @@
+{
+    "ClassName": "Folder",
+    "Children": [
+        {
+            "Name": "DeviceStateUpdate",
+            "ClassName": "RemoteEvent"
+        },
+        {
+            "Name": "DeviceStateKeyUpdate",
+            "ClassName": "RemoteEvent"
+        },
+        {
+            "Name": "SendDeviceMessage",
+            "ClassName": "RemoteEvent"
+        },
+        {
+            "Name": "RequestDeviceInit",
+            "ClassName": "RemoteFunction"
+        }
+    ]
+}
